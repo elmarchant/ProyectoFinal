@@ -4,5 +4,5 @@
 
 ## Proyecto de Web Components creado con Polymer 3
 
-Este es un proyecto que crea un entorno de escritorio web (o algo así) basado en web components,
+Entorno de escritorio web (o algo así) basado en web components,
 con la tecnología de polymer para el desarrollo con web components. Esto es un proyecto escolar. 
