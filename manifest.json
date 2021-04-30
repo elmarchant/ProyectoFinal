@@ -1,0 +1,6 @@
+{
+  "name": "Web Desktop Environment",
+  "short_name": "Web Desktop Environment",
+  "start_url": "/",
+  "display": "standalone"
+}
