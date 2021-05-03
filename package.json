@@ -1,5 +1,5 @@
 {
-  "name": "Web Desktop Environment",
+  "name": "web-desktop-environment",
   "dependencies": {
     "@polymer/polymer": "^3.0.0"
   },
