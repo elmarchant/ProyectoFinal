@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    font-family: 'Roboto';
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+main#background{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+nav#dock-bar{
+    position: absolute;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    box-sizing: border-box;
+    backdrop-filter: blur(25px);
+}
+
+nav#dock-bar button{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    color: white;
+}
+
+nav#dock-bar button svg{
+    width: 24px;
+    height: 24px;
+}
+
+.top-dock{
+    top: 8px;
+    height: 64px;
+    width: 90vw;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.bottom-dock{
+    top: calc(100% - 64px - 8px);
+    height: 64px;
+    width: 90vw;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.left-dock{
+    left: 8px;
+    height: 90vh;
+    width: 64px;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.right-dock{
+    left: calc(100% - 64px - 8px);
+    height: 90vh;
+    width: 64px;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.top-dock .dock-buttons,
+.top-dock .dock-time,
+.bottom-dock .dock-buttons,
+.bottom-dock .dock-time{
+    float: left;
+    height: 64px;
+}
+
+.top-dock .dock-buttons,
+.bottom-dock .dock-buttons{
+    display: flex;
+    width: 70%;
+    justify-content: left;
+}
+
+.top-dock .dock-time,
+.bottom-dock .dock-time{
+    width: 30%;
+}
+
+.top-dock .dock-buttons button,
+.bottom-dock .dock-buttons button{
+    width: 100%;
+}
+
+.top-dock .dock-time button,
+.bottom-dock .dock-time button{
+    width: 100%;
+    height: 64px;
+    font-size: 16px;
+}
