@@ -9,7 +9,7 @@ class WdeApp extends PolymerElement {
     return html`
       <link rel="stylesheet" href="./src/style/main.css">
       <main id="background">
-        <nav id="dock-bar" class="bottom-dock">
+        <nav id="dock-bar" class="left-dock">
           <div class="dock-buttons">
             <button type="button">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -74,7 +74,7 @@ class WdeApp extends PolymerElement {
       minutes: date.getMinutes().toString().padStart(2, '0')
     }
 
-    this.time = `${values.hours}:${values.minutes}\n ${values.date}/${values.month}/${values.year}`;
+    this.time = `${values.hours}:${values.minutes} ${values.date}/${values.month}/${values.year}`;
   }
 
   ready(){

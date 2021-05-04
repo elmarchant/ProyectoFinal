@@ -42,6 +42,11 @@ nav#dock-bar button{
     color: white;
 }
 
+nav#dock-bar button:hover{
+    background-color: white;
+    color: black;
+}
+
 nav#dock-bar button svg{
     width: 24px;
     height: 24px;
@@ -109,4 +114,37 @@ nav#dock-bar button svg{
     width: 100%;
     height: 64px;
     font-size: 16px;
+}
+
+.left-dock .dock-buttons,
+.left-dock .dock-time,
+.right-dock .dock-buttons,
+.right-dock .dock-time{
+    display: block;
+    height: 64px;
+}
+
+.left-dock .dock-buttons,
+.right-dock .dock-buttons{
+    width: 100%;
+    height: 70%;
+}
+
+.left-dock .dock-time,
+.right-dock .dock-time{
+    height: 30%;
+}
+
+.left-dock .dock-buttons button,
+.right-dock .dock-buttons button{
+    display: block;
+    width: 100%;
+    height: 25%;
+}
+
+.left-dock .dock-time button,
+.right-dock .dock-time button{
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
 }
