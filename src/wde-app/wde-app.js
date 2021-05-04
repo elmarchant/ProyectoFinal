@@ -1,4 +1,7 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import '@polymer/app-route/app-location.js';
+import '@polymer/app-route/app-route.js';
+import '@polymer/iron-pages/iron-pages.js';
 
 /**
  * @customElement
@@ -9,33 +12,39 @@ class WdeApp extends PolymerElement {
     return html`
       <link rel="stylesheet" href="./src/style/main.css">
       <main id="background">
-        <nav id="dock-bar" class="left-dock">
+        <app-location route="{{route}}"></app-location>
+        <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+        <nav id="dock-bar" class="bottom-dock">
           <div class="dock-buttons">
-            <button type="button">
+            <a role="button" href="/applications">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
               </svg>
-            </button>
-            <button type="button">
+            </a>
+            <a role="button" href="/tasks">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-fill" viewBox="0 0 16 16">
                 <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
               </svg>
-            </button>
-            <button type="button">
+            </a>
+            <a role="button" href="/">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                 <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
               </svg>
-            </button>
-            <button type="button">
+            </a>
+            <a role="button" href="/settings">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
                 <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
               </svg>
-            </button>
+            </a>
           </div>
           <div class="dock-time">
             <button id="dock-time" type="button">[[time]]</button>
           </div>
         </nav>
+        <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
+          <home-component name="home"></home-component>
+          <applications-component name="applications"></applications-component>
+        </iron-pages>        
       </main>
     `;
   }
@@ -55,8 +64,45 @@ class WdeApp extends PolymerElement {
       time: {
         type: String,
         value: ''
+      },
+      page: {
+        type: String,
+        reflectToAttribute: true,
+        observer: '_pageChanged'
       }
     };
+  }
+
+  static get observers() {
+    return [
+      '_routePageChanged(routeData.page)'
+    ];
+  }
+
+  _routePageChanged(page) {
+    if (!page) {
+      this.page = 'home';
+    } else if (['home', 'applications'].indexOf(page) !== -1) {
+      this.page = page;
+    } else {
+      this.page = 'home';
+    }
+
+    // Close a non-persistent drawer when the page & route are changed.
+    /*if (!this.$.drawer.persistent) {
+      this.$.drawer.close();
+    }*/
+  }
+
+  _pageChanged(page) {
+    switch (page) {
+      case 'home':
+        import('./home.js');
+        break;
+      case 'applications':
+        import('./applications.js');
+        break;
+    }
   }
 
   setBackground(){

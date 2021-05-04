@@ -34,7 +34,8 @@ nav#dock-bar{
     backdrop-filter: blur(25px);
 }
 
-nav#dock-bar button{
+nav#dock-bar button,
+nav#dock-bar a{
     padding: 0;
     margin: 0;
     border: 0;
@@ -42,14 +43,23 @@ nav#dock-bar button{
     color: white;
 }
 
-nav#dock-bar button:hover{
+nav#dock-bar button:hover,
+nav#dock-bar a:hover{
     background-color: white;
     color: black;
 }
 
-nav#dock-bar button svg{
+nav#dock-bar button svg,
+nav#dock-bar a svg{
     width: 24px;
     height: 24px;
+}
+
+nav#dock-bar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
 }
 
 .top-dock{
@@ -105,7 +115,9 @@ nav#dock-bar button svg{
 }
 
 .top-dock .dock-buttons button,
-.bottom-dock .dock-buttons button{
+.bottom-dock .dock-buttons button,
+.top-dock .dock-buttons a,
+.bottom-dock .dock-buttons a{
     width: 100%;
 }
 
@@ -136,7 +148,9 @@ nav#dock-bar button svg{
 }
 
 .left-dock .dock-buttons button,
-.right-dock .dock-buttons button{
+.right-dock .dock-buttons button,
+.left-dock .dock-buttons a,
+.right-dock .dock-buttons a{
     display: block;
     width: 100%;
     height: 25%;
