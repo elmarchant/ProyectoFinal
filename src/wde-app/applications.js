@@ -7,7 +7,8 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 class Applications extends PolymerElement {
   static get template() {
     return html`
-        <section>
+        <link rel="stylesheet" href="./src/style/applications.css">
+        <section class="applications">
             <h1>Applications</h1>
         </section>
     `;

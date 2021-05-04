@@ -32,6 +32,7 @@ nav#dock-bar{
     border-radius: 8px;
     box-sizing: border-box;
     backdrop-filter: blur(25px);
+    z-index: 10;
 }
 
 nav#dock-bar button,

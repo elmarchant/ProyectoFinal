@@ -1,0 +1,25 @@
+.home{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+}
+
+.clock{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.time{
+    font-size: 64px;
+}
+
+.date{
+    font-size: 16px;
+}
+
