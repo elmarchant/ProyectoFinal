@@ -9,7 +9,12 @@ class Applications extends PolymerElement {
     return html`
         <link rel="stylesheet" href="./src/style/applications.css">
         <section class="applications">
-            <h1>Applications</h1>
+            <div class="centered-block">
+              <h1 style="text-align: center;">Aplicaciones</h1>
+              <hr>
+              <div class="inner-block">
+              </div>
+            </div>
         </section>
     `;
   }
