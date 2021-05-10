@@ -3,6 +3,8 @@ import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
 import '@polymer/iron-pages/iron-pages.js';
 
+const components = ['home', 'applications', 'settings'];
+
 /**
  * @customElement
  * @polymer
@@ -44,6 +46,7 @@ class WdeApp extends PolymerElement {
         <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
           <home-component name="home"></home-component>
           <applications-component name="applications"></applications-component>
+          <settings-component name="settings"></settings-component>
         </iron-pages>        
       </main>
     `;
@@ -82,7 +85,7 @@ class WdeApp extends PolymerElement {
   _routePageChanged(page) {
     if (!page) {
       this.page = 'home';
-    } else if (['home', 'applications'].indexOf(page) !== -1) {
+    } else if (components.indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = 'home';
@@ -101,6 +104,9 @@ class WdeApp extends PolymerElement {
         break;
       case 'applications':
         import('./applications.js');
+        break;
+      case 'settings':
+        import('./settings.js');
         break;
     }
   }
