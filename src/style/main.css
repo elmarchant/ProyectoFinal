@@ -31,13 +31,14 @@ main#background{
 }
 
 nav#dock-bar{
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 8px;
     box-sizing: border-box;
     backdrop-filter: blur(25px);
     z-index: 10;
+    transition: 0.25s;
 }
 
 nav#dock-bar button,
@@ -76,12 +77,20 @@ nav#dock-bar a{
     left: 50%;
 }
 
+.top-dock.dock-hide{
+    top: calc(0px - 64px) !important;
+}
+
 .bottom-dock{
     top: calc(100% - 64px - 8px);
     height: 64px;
     width: 90vw;
     transform: translateX(-50%);
     left: 50%;
+}
+
+.bottom-dock.dock-hide{
+    top: 100% !important;
 }
 
 .left-dock{
@@ -167,4 +176,8 @@ nav#dock-bar a{
     width: 100%;
     height: 100%;
     font-size: 12px;
+}
+
+.window{
+    overflow-y: scroll;
 }

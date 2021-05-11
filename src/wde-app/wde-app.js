@@ -16,7 +16,7 @@ class WdeApp extends PolymerElement {
       <main id="background">
         <app-location route="{{route}}"></app-location>
         <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
-        <nav id="dock-bar" class="bottom-dock">
+        <nav id="dock-bar" class="top-dock">
           <div class="dock-buttons">
             <!--<a role="button" href="/applications">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -53,9 +53,46 @@ class WdeApp extends PolymerElement {
   }
   static get properties() {
     return {
-      prop1: {
-        type: String,
-        value: 'wde-app'
+      dock: {
+        type: Object,
+        value: {
+          element: document.createElement('nav'),
+          autoHide: setTimeout(''),
+          hover: false,
+          home: true,
+          setElement: function(element){
+            this.element = element;
+          },
+          show: function(){
+            if(this.element.classList.contains('dock-hide')){
+              this.element.classList.remove('dock-hide');
+
+              return true;
+            }else{
+              return false;
+            }
+          },
+          hide: function(){
+            if(this.element.classList.contains('dock-hide')){
+              return false;
+            }else{
+              this.element.classList.add('dock-hide');
+              return true;
+            }
+          },
+          resetAutoHide: function(time=1000){
+            this.unsetAutoHide();
+            this.setAutoHide(time);
+          },
+          setAutoHide: function(time=1000){
+            this.autoHide = setTimeout(()=>{
+              this.hide();
+            }, time);
+          },
+          unsetAutoHide: function(){
+            clearTimeout(this.autoHide);
+          }
+        }
       },
       backgroundImage: {
         type: Object,
@@ -131,6 +168,53 @@ class WdeApp extends PolymerElement {
 
   ready(){
     super.ready();
+
+    var dockBar = this.shadowRoot.querySelector('#dock-bar');
+
+    this.dock.setElement(dockBar);
+
+    this.dock.setAutoHide(2000);
+
+    dockBar.addEventListener('mouseover', ()=>{
+      this.dock.hover = true;
+      this.dock.unsetAutoHide();
+    });
+
+    dockBar.addEventListener('mouseleave', ()=>{
+      this.dock.hover = false;
+      this.dock.resetAutoHide();
+    });
+
+    document.addEventListener('mousemove', (event)=>{
+      var bar = this.shadowRoot.querySelector('#dock-bar');
+      var ycoords = event.clientY / window.innerHeight * 100;
+
+      if(bar.classList.contains('top-dock')){
+        if(ycoords < 10){
+          if(!this.dock.hover){
+            var result = this.dock.show();
+  
+            if(result){
+              this.dock.setAutoHide();
+            }else{
+              this.dock.resetAutoHide();
+            }
+          }
+        }
+      }else if(bar.classList.contains('bottom-dock')){
+        if(ycoords > 90){
+          if(!this.dock.hover){
+            var result = this.dock.show();
+  
+            if(result){
+              this.dock.setAutoHide();
+            }else{
+              this.dock.resetAutoHide();
+            }
+          }
+        }
+      }
+    });
     
     var bgImage = localStorage.getItem('backgroundImage');
     if(bgImage){
