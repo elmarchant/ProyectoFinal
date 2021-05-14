@@ -3,3 +3,33 @@
 .settings{
     color: white;
 }
+
+.settings-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.settings-table tr:nth-child(2n){
+    background-color: #272727;
+}
+
+.settings-table tr td,
+.settings-table tr th{
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.setting-description{
+    width: 75%;
+    text-align: left;
+    vertical-align: middle;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.setting-action{
+    width: 25%;
+    text-align: center;
+    vertical-align: middle;
+}
