@@ -39,15 +39,72 @@ select{
     padding: 0;
     margin: 0;
     border: 0;
+    font-size: 16px;
     outline: none;
     cursor: pointer;
     background-color: black;
     color: white;
-    font-size: 16px;
     border-radius: 4px;
     text-align-last: center;
 }
 
 .shell-select option{
     cursor: pointer;
+}
+
+.input-number-1{
+    display: inline-block;
+    background-color: black;
+    height: 48px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.input-number-1 input[type="number"],
+.input-number-1 button{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: white;
+    height: 100%;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-number-1 input[type="number"]{
+    width: 64px;
+    text-align: center;
+    -moz-appearance: textfield;
+    font-size: 16px;
+}
+
+.input-number-1 input[type="number"]::-webkit-outer-spin-button,
+.input-number-1 input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-number-1 input[type="number"],
+.input-number-1 button:nth-child(1){
+    float: left;
+}
+
+.input-number-1 button:nth-child(2){
+    float: right;
+}
+
+.input-number-1 button{
+    width: 32px;
+    cursor: pointer;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.input-number-1 button:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+.input-number-1 button:active{
+    filter: invert(100%);
 }

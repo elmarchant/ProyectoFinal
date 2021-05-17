@@ -58,6 +58,7 @@ class WdeApp extends PolymerElement {
         value: {
           element: document.createElement('nav'),
           autoHide: setTimeout(''),
+          time: localStorage.getItem('dockTime') ? parseInt(localStorage.getItem('dockTime')) : 1000, 
           position: 'bottom-dock',
           hover: false,
           home: true,
@@ -202,9 +203,9 @@ class WdeApp extends PolymerElement {
       var result = this.dock.show();
 
       if(result){
-        this.dock.setAutoHide();
+        this.dock.setAutoHide(this.dock.time);
       }else{
-        this.dock.resetAutoHide();
+        this.dock.resetAutoHide(this.dock.time);
       }
     }
   }
@@ -227,7 +228,7 @@ class WdeApp extends PolymerElement {
       this.dock.element.className = map.get(this.dock.position);
     }
 
-    this.dock.resetAutoHide(1000);
+    this.dock.resetAutoHide(this.dock.time);
   }
 
   ready(){
@@ -237,7 +238,7 @@ class WdeApp extends PolymerElement {
 
     this.dock.setElement(dockBar);
 
-    this.dock.setAutoHide(2000);
+    this.dock.setAutoHide(this.dock.time);
 
     this.setDockPosition();
 
@@ -248,7 +249,7 @@ class WdeApp extends PolymerElement {
 
     dockBar.addEventListener('mouseleave', ()=>{
       this.dock.hover = false;
-      this.dock.resetAutoHide();
+      this.dock.resetAutoHide(this.dock.time);
     });
 
     document.addEventListener('touchmove', (event)=>{
