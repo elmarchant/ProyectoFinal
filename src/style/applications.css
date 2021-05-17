@@ -53,6 +53,10 @@
     overflow: hidden;
 }
 
+.app-list li:hover{
+    background-color: rgba(50, 50, 50, 0.5);
+}
+
 .app-list li a{
     position: relative;
     margin: 0;

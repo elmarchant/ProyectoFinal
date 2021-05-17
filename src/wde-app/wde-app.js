@@ -16,7 +16,7 @@ class WdeApp extends PolymerElement {
       <main id="background">
         <app-location route="{{route}}"></app-location>
         <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
-        <nav id="dock-bar" class="top-dock">
+        <nav id="dock-bar" class="bottom-dock">
           <div class="dock-buttons">
             <!--<a role="button" href="/applications">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -58,6 +58,7 @@ class WdeApp extends PolymerElement {
         value: {
           element: document.createElement('nav'),
           autoHide: setTimeout(''),
+          position: 'bottom-dock',
           hover: false,
           home: true,
           setElement: function(element){
@@ -208,6 +209,27 @@ class WdeApp extends PolymerElement {
     }
   }
 
+  setDockPosition(){
+    var map = new Map();
+
+    map.set('top-dock', 'top-dock');
+    map.set('bottom-dock', 'bottom-dock');
+    map.set('left-dock', 'left-dock');
+    map.set('right-dock', 'right-dock');
+
+    if(localStorage.getItem('dockPosition')){
+      this.dock.position = localStorage.getItem('dockPosition');
+    }else{
+      localStorage.setItem('dockPosition', 'bottom-dock');
+    }
+
+    if(map.get(this.dock.position)){
+      this.dock.element.className = map.get(this.dock.position);
+    }
+
+    this.dock.resetAutoHide(1000);
+  }
+
   ready(){
     super.ready();
 
@@ -216,6 +238,8 @@ class WdeApp extends PolymerElement {
     this.dock.setElement(dockBar);
 
     this.dock.setAutoHide(2000);
+
+    this.setDockPosition();
 
     dockBar.addEventListener('mouseover', ()=>{
       this.dock.hover = true;
@@ -230,22 +254,32 @@ class WdeApp extends PolymerElement {
     document.addEventListener('touchmove', (event)=>{
       var bar = this.shadowRoot.querySelector('#dock-bar');
       var ycoords = event.touches[0].clientY / window.innerHeight * 100;
+      var xcoords = event.touches[0].clientX / window.innerWidth * 100;
 
       if(bar.classList.contains('top-dock')){
         if(ycoords < 10) this.dockChange();
       }else if(bar.classList.contains('bottom-dock')){
         if(ycoords > 90) this.dockChange();
+      }else if(bar.classList.contains('left-dock')){
+        if(xcoords < 10) this.dockChange();
+      }else if(bar.classList.contains('right-dock')){
+        if(xcoords > 90) this.dockChange();
       }
     });
 
     document.addEventListener('mousemove', (event)=>{
       var bar = this.shadowRoot.querySelector('#dock-bar');
       var ycoords = event.clientY / window.innerHeight * 100;
+      var xcoords = event.clientX / window.innerWidth * 100;
 
       if(bar.classList.contains('top-dock')){
         if(ycoords < 1) this.dockChange();
       }else if(bar.classList.contains('bottom-dock')){
         if(ycoords > 99) this.dockChange();
+      }else if(bar.classList.contains('left-dock')){
+        if(xcoords < 1) this.dockChange();
+      }else if(bar.classList.contains('right-dock')){
+        if(xcoords > 99) this.dockChange();
       }
     });
 

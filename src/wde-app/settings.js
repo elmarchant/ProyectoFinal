@@ -29,12 +29,14 @@ class Settings extends PolymerElement {
                     </td>
                   </tr>
                   <tr>
-                    <td class="setting-description">Prueba1 owijeoijwe owiejdwo iejd woeidj owiejd owiejd woiejdowiej dowiejd woiedj woiejd woiedj woiej dwoiej dwoijd weoidj woiej dwoiedj woiedj ewoidj weio jdowie jdowi jdowiedj owei j</td>
+                    <td class="setting-description">Ubicación del Dock</td>
                     <td class="setting-action">
-                      <label class="switch-check" for="input0">
-                        <input type="checkbox" id="input0"/>
-                        <label class="switch-thumb" for="input0"></label>
-                      </label>
+                      <select class="shell-select" id="dock-position">
+                        <option value="top-dock">Arriba</option>
+                        <option value="bottom-dock">Abajo</option>
+                        <option value="left-dock">Izquierda</option>
+                        <option value="right-dock">Derecha</option>
+                      </select>
                     </td>
                   </tr>
                 </tbody>
@@ -83,10 +85,24 @@ class Settings extends PolymerElement {
   ready(){
     super.ready();
 
+    var dockPosition = this.shadowRoot.querySelector('#dock-position');
+    var options = dockPosition.querySelectorAll('option');
+
+    options.forEach(item => {
+      if(item.value == localStorage.getItem('dockPosition')){
+        item.setAttribute('selected', '');
+      }
+    });
+
     this.shadowRoot.querySelector('#bg-image-label').innerHTML += `<img draggable="false" src="${this.backgroundSettings.mainComponent.backgroundImage.source}"/>`;
     
     this.shadowRoot.querySelector('#setBGImage').addEventListener('input', (event)=>{
       this.setBackground(event);
+    });
+
+    dockPosition.addEventListener('input', (event)=>{
+      localStorage.setItem('dockPosition', dockPosition.value);
+      document.querySelector('wde-app').setDockPosition();
     });
   }
 }

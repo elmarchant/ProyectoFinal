@@ -80,7 +80,7 @@ nav#dock-bar a{
 }
 
 .top-dock.dock-hide{
-    top: calc(0px - 64px) !important;
+    top: -64px !important;
 }
 
 .bottom-dock{
@@ -103,12 +103,20 @@ nav#dock-bar a{
     top: 50%;
 }
 
+.left-dock.dock-hide{
+    left: -64px !important;
+}
+
 .right-dock{
     left: calc(100% - 64px - 8px);
     height: 90vh;
     width: 64px;
     transform: translateY(-50%);
     top: 50%;
+}
+
+.right-dock.dock-hide{
+    left: 100% !important;
 }
 
 .top-dock .dock-buttons,
