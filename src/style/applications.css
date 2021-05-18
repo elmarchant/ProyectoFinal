@@ -44,10 +44,9 @@
 
 .app-list li{
     display: block;
-    float: left;
-    width: 96px;
+    box-sizing: border-box;
     height: 96px;
-    margin: 8px;
+    margin-bottom: 8px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     overflow: hidden;
@@ -68,31 +67,39 @@
     color: white;
     box-sizing: border-box;
     padding: 8px;
+    box-sizing: border-box;
 }
 
 .app-list li a .icon{
-    position: relative;
-    width: 100%;
-    height: calc(100% - 16px);
+    width: 80px;
+    height: 80px;
+    float: left;
+    overflow: hidden;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
 .app-list li a .icon img{
     position: relative;
     display: block;
-    margin: auto;
-    transform: translateY(-50%);
+    width: 100%;
     top: 50%;
-    width: 65%;
+    transform: translateY(-50%);
 }
 
 .app-list li a .text{
-    height: 16px;
-    width: 100%;
-    font-size: 12px;
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+    width: calc(100% - 80px);
+    font-size: 16px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     box-sizing: border-box;
+    padding-left: 24px;
 }
 
 @media (min-width: 1280px) {

@@ -30,12 +30,11 @@
     margin: auto;
 }
 
-select{
+.shell-select{
     display: inline-block;
     appearance: none;
     width: 96px;
     height: 48px;
-    outline: 0;
     padding: 0;
     margin: 0;
     border: 0;

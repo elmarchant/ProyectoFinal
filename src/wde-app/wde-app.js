@@ -3,7 +3,7 @@ import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
 import '@polymer/iron-pages/iron-pages.js';
 
-const components = ['home', 'applications', 'settings'];
+const components = ['home', 'applications', 'settings', 'calculadora'];
 
 /**
  * @customElement
