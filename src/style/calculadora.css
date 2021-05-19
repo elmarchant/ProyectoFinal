@@ -1,0 +1,46 @@
+@import url('./main.css');
+
+.input-output{
+    position: relative;
+    height: 128px;
+    box-sizing: border-box;
+    padding: 0px 8px 0px 8px;
+    font-size: 48px;
+    line-height: 128px;
+    text-align: right;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.buttons{
+    height: calc(100% - 128px);
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.calc-buttons{
+    border-collapse: separate;
+    border-spacing: 4px;
+    width: 100%;
+    height: 100%;
+}
+
+.calc-buttons td, th{
+    background-color: black;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+}
+
+.calc-buttons td:hover,
+.calc-buttons th:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+.calc-buttons td:active,
+.calc-buttons th:active{
+    filter: invert(100%);
+}

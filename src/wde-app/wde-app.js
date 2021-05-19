@@ -47,6 +47,7 @@ class WdeApp extends PolymerElement {
           <home-component name="home"></home-component>
           <applications-component name="applications"></applications-component>
           <settings-component name="settings"></settings-component>
+          <calculadora-app name="calculadora"></calculadora-app>
         </iron-pages>        
       </main>
     `;
@@ -146,6 +147,9 @@ class WdeApp extends PolymerElement {
         break;
       case 'settings':
         import('./settings.js');
+        break;
+      case 'calculadora':
+        import('./programs/calculadora.js');
         break;
     }
   }

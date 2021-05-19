@@ -6,7 +6,7 @@ export const program = [
     },
     {
         name: "Calculadora",
-        uri: "/home",
+        uri: "calculadora",
         icon: "/src/assets/app-icons/calculadora.svg"
     }
 ];

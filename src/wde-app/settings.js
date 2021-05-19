@@ -10,7 +10,7 @@ class Settings extends PolymerElement {
         <link rel="stylesheet" href="./src/style/settings.css">
         <div class="window">
           <div class="window-head">
-            <p class="window-title">Settings</p>
+            <p class="window-title">Configuración</p>
           </div>
           <div class="window-body">
             <section>
