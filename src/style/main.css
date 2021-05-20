@@ -225,3 +225,7 @@ nav#dock-bar a{
 .window::-webkit-scrollbar-thumb{
     background-color: rgba(100, 100, 100, 1);
 }
+
+.hide-item{
+    display: none;
+}

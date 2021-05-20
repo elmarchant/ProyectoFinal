@@ -1,0 +1,182 @@
+@import url('./main.css');
+
+section{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.window-body{
+    overflow: hidden !important;
+    padding: 0 !important;
+}
+
+.workspace{
+    position: relative;
+    height: calc(100% - 64px);
+    background-color: transparent;
+    overflow: scroll;
+    padding: 64px;
+}
+
+.workspace canvas{
+    position: relative;
+    display: block;
+    margin: auto;
+    background-color: white;
+    background-image: url('/src/assets/images/transparent-image-texture.png');
+    background-repeat: repeat;
+    background-size: 128px;
+    border: 1px solid black;
+    cursor: crosshair;
+}
+
+.controls{
+    display: flex;
+    justify-content: left;
+    height: 64px;
+    background-color: #101010;
+}
+
+.controls .option-btn{
+    display: block;
+    width: 100%;
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    padding: 0;
+}
+
+.controls label.option-btn{
+    position: relative;
+}
+
+.controls label.option-btn svg{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.controls label.option-btn input{
+    display: none;
+}
+
+.controls .option-btn:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+.controls .option-btn:active{
+    filter: invert(100%);
+}
+
+.controls .option-btn svg{
+    width: 24px;
+    height: 24px;
+}
+
+.image-upload{
+    width: 64px;
+}
+
+.side-bar{
+    position: absolute;
+    width: 100%;
+    max-width: 300px;
+    top: 104px;
+    height: calc(100% - 64px - 40px);
+    background-color: #101010;
+    box-sizing: border-box;
+    padding: 8px;
+    overflow-y: scroll;
+}
+
+.side-bar .slot{
+    display: block;
+    font-size: 16px;
+    border-bottom: 2px solid #1e1e1e;
+    margin-bottom: 16px;
+}
+
+.side-bar .slot:last-child{
+    border: 0;
+    margin-bottom: 0;
+}
+
+.slot-title{
+    margin-bottom: 4px;
+}
+
+.slot-body{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.text-field{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 8px 12px 8px;
+    border: 0;
+    border-radius: 4px;
+    outline: none;
+    background-color: #1e1e1e;
+    font-size: 16px;
+    color: white;
+}
+
+.type-number-field{
+    display: block;
+    width: 100%;
+    height: 48px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.type-number-field input{
+    width: calc(100% - 32px);
+    border: 0;
+    box-sizing: border-box;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.type-number-field div{
+    width: 32px;
+    text-align: center;
+    line-height: 48px;
+    background-color: #1e1e1e;
+}
+
+.type-number-field div,
+.type-number-field input{
+    float: left;
+    height: 100%;
+}
+
+.color-field{
+    width: 100%;
+    height: 32px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 0;
+    background-color: #1e1e1e;
+    outline: none;
+}
+
+.select-field{
+    background-color: #1e1e1e;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    border: 0;
+    color: white;
+    border-radius: 4px;
+    padding: 8px;
+}
