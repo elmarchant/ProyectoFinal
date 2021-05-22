@@ -24,7 +24,7 @@ class WebPaint extends PolymerElement {
                             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                             <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
                         </svg>
-                        <input type="file" accept="image/png, image/jpeg, image/bmp" id="upload-image">
+                        <input on-input="loadImage" type="file" accept="image/png, image/jpeg, image/bmp" id="upload-image">
                     </label>
                     <button on-click="saveImage" class="option-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save-fill" viewBox="0 0 16 16">
@@ -138,8 +138,51 @@ class WebPaint extends PolymerElement {
                     lineColor: '#000000',
                     eraser: false,
                 }
+            },
+            validTypes: {
+                type: Array,
+                value: [
+                    "image/apng",
+                    "image/bmp",
+                    "image/gif",
+                    "image/jpeg",
+                    "image/pjpeg",
+                    "image/png",
+                    "image/svg+xml",
+                    "image/tiff",
+                    "image/webp",
+                    "image/x-icon"
+                ]
             }
         };
+    }
+
+    loadImage(event){
+        var file = event.target.files[0];
+        var valid = this.validTypes.includes(file.type);
+        var ctx = this.shadowRoot.getElementById('canvas').getContext('2d');
+
+        if(valid){
+            var reader = new FileReader();
+            var img = new Image();
+
+            this.title = file.name;
+
+            reader.readAsDataURL(file);
+
+            reader.onloadend = ()=>{
+                img.src = reader.result;
+
+                img.onload = ()=>{
+                    this.width = img.width;
+                    this.height = img.height;
+
+                    ctx.drawImage(img, 0, 0, this.width, this.height);
+                }
+            }
+        }else{
+            alert('Archivo no válido.');   
+        }
     }
 
     switchMenu(){
