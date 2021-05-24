@@ -3,7 +3,7 @@ import '@polymer/app-route/app-location.js';
 import '@polymer/app-route/app-route.js';
 import '@polymer/iron-pages/iron-pages.js';
 
-const components = ['home', 'applications', 'settings', 'calculadora', 'web-paint'];
+const components = ['home', 'applications', 'settings', 'calculadora', 'web-paint', 'snake-game'];
 
 /**
  * @customElement
@@ -49,6 +49,7 @@ class WdeApp extends PolymerElement {
           <settings-component name="settings"></settings-component>
           <calculadora-app name="calculadora"></calculadora-app>
           <web-paint-app name="web-paint"></web-paint-app>
+          <snake-game-app name="snake-game"></snake-game-app>
         </iron-pages>        
       </main>
     `;
@@ -154,6 +155,9 @@ class WdeApp extends PolymerElement {
         break;
       case 'web-paint':
         import('./programs/web-paint.js');
+        break;
+      case 'snake-game':
+        import('./programs/snake-game.js');
         break;
     }
   }

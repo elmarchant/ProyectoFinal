@@ -8,5 +8,10 @@ export const program = [
         name: "Web Paint",
         uri: "web-paint",
         icon: "/src/assets/app-icons/paint.svg"
+    },
+    {
+        name: "Snake Game",
+        uri: "snake-game",
+        icon: "/src/assets/app-icons/snake.svg"
     }
 ];
