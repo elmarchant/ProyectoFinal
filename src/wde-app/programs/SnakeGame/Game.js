@@ -136,30 +136,27 @@ export class Game{
                 switch(event.key){
                     case 'ArrowLeft': 
                         if(this.player.direction != 'right'){
-                            if(this.state == this.states[2]) this.player.direction = 'left';
+                            if(this.state != this.states[1] && this.state != this.states[3]) this.player.direction = 'left';
                             this.startGame();
                         } 
                         break;
                     case 'ArrowRight': 
                         if(this.player.direction != 'left'){
-                            if(this.state == this.states[2]) this.player.direction = 'right';
+                            if(this.state != this.states[1] && this.state != this.states[3]) this.player.direction = 'right';
                             this.startGame();
                         }
                         break;
                     case 'ArrowUp': 
                         if(this.player.direction != 'down'){
-                            if(this.state == this.states[2]) this.player.direction = 'up';
+                            if(this.state != this.states[1] && this.state != this.states[3]) this.player.direction = 'up';
                             this.startGame();
                         }
                         break;
                     case 'ArrowDown': 
                         if(this.player.direction != 'up'){
-                            if(this.state == this.states[2]) this.player.direction = 'down';
+                            if(this.state != this.states[1] && this.state != this.states[3]) this.player.direction = 'down';
                             this.startGame();
                         }
-                        break;
-                    case ' ': 
-                        this.switchState();
                         break;
                 }
 
