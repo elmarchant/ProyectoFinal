@@ -1,0 +1,87 @@
+@import url('./main.css');
+
+.simple-menu{
+    width: 100%;
+    height: 48px;
+    background-color: #101010;
+}
+
+.window-body{
+    overflow: hidden !important;
+    padding: 0 !important;
+}
+
+.workspace{
+    display: block;
+    font-size: 16px;
+    color: black;
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: calc(100% - 48px);
+    border: 0;
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 0px;
+    overflow: scroll;
+}
+
+.simple-menu .simple-item{
+    display: block;
+    float: left;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    color: white;
+    background-color: transparent;
+}
+
+.simple-menu .item-div{
+    width: calc(100% - 48px * 2);
+    background-color: transparent;
+    padding: 4px;
+}
+
+.simple-menu .item-button{
+    width: 48px;
+    padding: 0px;
+}
+
+.simple-menu label.item-button{
+    position: relative;
+    text-align: center;
+    align-items: flex-start;
+}
+
+.simple-menu label.item-button svg{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.simple-menu .item-button:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+.simple-menu label.item-button input{
+    display: none;
+}
+
+.simple-menu .item-button:active{
+    filter: invert(100%);
+}
+
+.simple-menu .text-field{
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 12px 8px 12px 8px;
+    border: 0;
+    border-radius: 4px;
+    outline: none;
+    background-color: #1e1e1e;
+    font-size: 16px;
+    color: white;
+}

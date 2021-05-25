@@ -203,6 +203,7 @@ nav#dock-bar a{
     width: 100%;
     height: 40px;
     background-color: #101010;
+    overflow: hidden;
 }
 
 .window-body{
@@ -220,6 +221,9 @@ nav#dock-bar a{
     margin: 0;
     height: 100%;
     line-height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .window::-webkit-scrollbar-thumb{
