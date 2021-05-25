@@ -13,5 +13,10 @@ export const program = [
         name: "Snake Game",
         uri: "snake-game",
         icon: "/src/assets/app-icons/snake.svg"
-    }
+    }/*,
+    {
+        name: "Tic Tac Toe",
+        uri: "tic-tac-toe",
+        icon: "/src/assets/app-icons/tic-tac-toe.svg"
+    }*/
 ];
