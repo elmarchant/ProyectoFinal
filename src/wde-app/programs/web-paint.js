@@ -86,7 +86,7 @@ class WebPaint extends PolymerElement {
                             <input id="lineColor" class="color-field" type="color"/>
                         </div>
                     </div>
-                    <div class="slot">
+                    <!--<div class="slot">
                         <div class="slot-title">Tipo</div>
                         <div class="slot-body">
                             <select class="select-field">
@@ -94,7 +94,7 @@ class WebPaint extends PolymerElement {
                                 <option value="eraser">Borrador</option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
                 </section>
             </div>
         </div>
